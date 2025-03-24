@@ -1,12 +1,18 @@
 ---
-title: "csu-portfolio"
+title: "Sean's Portfolio"
+about: 
+  template: jolla
+  links: 
+    - text: Github
+      icon: github
+      href: https://github.com/Seanpear
 ---
 
-Welcome to my portfolio! I'm a student at Colorado State University studying Ecosystem Science and Sustainability.
+Welcome to my portfolio!
 
 This website showcases my work with R, Quarto, and data analysis projects.
 
-### Projects 
+### Projects
 
 Check out my latest data science work:
 
@@ -16,3 +22,8 @@ Check out my latest data science work:
 
 View my resume:\
 [Resume](resume.html)
+
+::: about-footer
+**© 2025 Sean Pearson**\
+CSU Portfolio • Built with [Quarto](https://quarto.org)
+:::

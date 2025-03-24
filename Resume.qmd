@@ -19,3 +19,12 @@ title: "Resume"
 -   ArcGIS Pro, GitHub, Quarto, Excel, R, RStudio
 
 -   Data visualization, communication, teamwork, problem solving
+
+```{=html}
+<style> .about-footer {   text-align: center;   font-size: 0.85em;   color: #666; } </style>
+```
+
+::: about-footer
+**© 2025 Sean Pearson**\
+CSU Portfolio • Built with [Quarto](https://quarto.org)
+:::

@@ -1,1 +1,15 @@
-/* css styles */
+.about-footer {
+  border-top: 1px solid #ccc;
+  margin-top: 3em;
+  padding-top: 1em;
+  font-size: 0.85em;
+  color: #666;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}

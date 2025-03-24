@@ -4,27 +4,27 @@
     "href": "resume.html",
     "title": "Resume",
     "section": "",
-    "text": "Education\n\nB.S. in Ecosystem Science and Sustainability, Colorado State University Expected Graduation: May 2026\n\n\n\nExperience\n\nCrew member, Mama Ronis Pizza Fort Collins, CO - Aug 2024 - Present\nProvided quality customer service in a fast-paced environment\nTrained new hires and managed closing responsibilities\n\n\n\nSkills\n\nArcGIS Pro, GitHub, Quarto, Excel, R, RStudio\nData visualization, communication, teamwork, problem solving"
+    "text": "Education\n\nB.S. in Ecosystem Science and Sustainability, Colorado State University Expected Graduation: May 2026\n\n\n\nExperience\n\nCrew member, Mama Ronis Pizza Fort Collins, CO - Aug 2024 - Present\nProvided quality customer service in a fast-paced environment\nTrained new hires and managed closing responsibilities\n\n\n\nSkills\n\nArcGIS Pro, GitHub, Quarto, Excel, R, RStudio\nData visualization, communication, teamwork, problem solving\n\n\n\n© 2025 Sean Pearson\nCSU Portfolio • Built with Quarto"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Hi! I’m a motivated and curious student at Colorado State University studying Ecosystem Science & Sustainability. I’m passionate about solving real-world problems with data and communicating science in creative, accessible ways."
+    "text": "Hi! I’m a motivated and curious student at Colorado State University studying Ecosystem Science & Sustainability. I’m passionate about solving real-world problems with data and communicating science in creative ways. This website is a space for me to share my academic journey, showcase skills, and connect with others who care about environmental sustainability. My goal is to consistently highlight the importance of values such as curiosity, collaboration, and adaptability.\n\n\n© 2025 Sean Pearson\nCSU Portfolio • Built with Quarto"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "csu-portfolio",
+    "title": "Sean’s Portfolio",
     "section": "",
-    "text": "Welcome to my portfolio! I’m a student at Colorado State University studying Ecosystem Science and Sustainability.\nThis website showcases my work with R, Quarto, and data analysis projects.\n\nProjects\nCheck out my latest data science work:\nCovid-19 Project\n\n\nResume\nView my resume:\nResume"
+    "text": "Welcome to my portfolio!\nThis website showcases my work with R, Quarto, and data analysis projects.\n\nProjects\nCheck out my latest data science work:\nCovid-19 Project\n\n\nResume\nView my resume:\nResume\n\n© 2025 Sean Pearson\nCSU Portfolio • Built with Quarto"
   },
   {
     "objectID": "projects.html",
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "During my last semester of college I took an interesting class called Quantitative Reasoning with R.\n\n[Building a project website](https://github.com/Seanpear/hello-world.git)\n-Used dplyr to clean and summarize real COVID-19 datasets\n- Wrote reusable R code in a Quarto .qmd file\n- Rendered an HTML report using RStudio\n- Practiced visual storytelling and data interpretation\n- Learned to troubleshoot errors and improve my coding workflow"
+    "text": "During my last semester of college I took an interesting class called Quantitative Reasoning with R. We use tools like R and Quarto to analyze data and publish our results on Github. On this page I will keep a list of the projects that I have completed.\n\n[Building a Portfolio](https://github.com/Seanpear/Portfolio.git)\n-Used dplyr to clean and summarize COVID-19 datasets\n- Wrote R code in a Quarto .qmd file successfully\n- Rendered an HTML report using RStudio\n- Practiced creating visuals and data interpretation\n- Learned to troubleshoot errors and improve my coding ability\n\n\n© 2025 Sean Pearson\nCSU Portfolio • Built with Quarto"
   }
 ]

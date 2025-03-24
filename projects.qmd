@@ -2,16 +2,25 @@
 title: "Projects"
 ---
 
-During my last semester of college I took an interesting class called Quantitative Reasoning with R.
+During my last semester of college I took an interesting class called Quantitative Reasoning with R. We use tools like R and Quarto to analyze data and publish our results on Github. On this page I will keep a list of the projects that I have completed.
 
-### \[Building a project website\](<https://github.com/Seanpear/Portfolio.git>)
+### \[Covid-19 Project\](<https://github.com/Seanpear/Portfolio.git>)
 
--Used `dplyr` to clean and summarize real COVID-19 datasets
+-Used `dplyr` to clean and summarize COVID-19 datasets
 
-\- Wrote reusable R code in a Quarto `.qmd` file
+\- Wrote R code in a Quarto `.qmd` file successfully
 
 \- Rendered an HTML report using RStudio
 
-\- Practiced visual storytelling and data interpretation
+\- Practiced creating visuals and data interpretation
 
-\- Learned to troubleshoot errors and improve my coding workflow
+\- Learned to troubleshoot errors and improve my coding ability
+
+```{=html}
+<style> .about-footer {   text-align: center;   font-size: 0.85em;   color: #666; } </style>
+```
+
+::: about-footer
+**© 2025 Sean Pearson**\
+CSU Portfolio • Built with [Quarto](https://quarto.org)
+:::

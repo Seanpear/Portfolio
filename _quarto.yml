@@ -7,7 +7,6 @@ project:
    - resume.qmd
 
 
-
 website:
   title: "csu-portfolio"
   navbar:
@@ -24,9 +23,11 @@ website:
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme:
+      - default
+      - styles.scss
     toc: true
+    css: styles.css
 
 editor: visual
 
