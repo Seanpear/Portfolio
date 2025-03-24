@@ -1,0 +1,17 @@
+---
+title: "Projects"
+---
+
+During my last semester of college I took an interesting class called Quantitative Reasoning with R.
+
+### \[Building a project website\](<https://github.com/Seanpear/Portfolio.git>)
+
+-Used `dplyr` to clean and summarize real COVID-19 datasets
+
+\- Wrote reusable R code in a Quarto `.qmd` file
+
+\- Rendered an HTML report using RStudio
+
+\- Practiced visual storytelling and data interpretation
+
+\- Learned to troubleshoot errors and improve my coding workflow

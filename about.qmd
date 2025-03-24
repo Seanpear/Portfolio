@@ -1,0 +1,7 @@
+---
+title: "About"
+---
+
+<img src="me.jpeg" alt="Photo of me" width="200" style="border-radius: 50%;"/>
+
+Hi! I'm a motivated and curious student at Colorado State University studying Ecosystem Science & Sustainability. I'm passionate about solving real-world problems with data and communicating science in creative, accessible ways.

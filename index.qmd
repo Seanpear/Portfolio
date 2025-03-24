@@ -1,0 +1,18 @@
+---
+title: "csu-portfolio"
+---
+
+Welcome to my portfolio! I'm a student at Colorado State University studying Ecosystem Science and Sustainability.
+
+This website showcases my work with R, Quarto, and data analysis projects.
+
+### Projects 
+
+Check out my latest data science work:
+
+[Covid-19 Project](projects.html)
+
+### Resume
+
+View my resume:\
+[Resume](resume.html)
