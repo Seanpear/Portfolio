@@ -2,7 +2,7 @@
 title: "Projects"
 ---
 
-During my last semester of college I took an interesting class called Quantitative Reasoning with R. We use tools like R and Quarto to analyze data and publish our results on Github. On this page I will keep a list of the projects that I have completed.
+During my last semester of college, I took an interesting class called Quantitative Reasoning with R. We use tools like R and Quarto to analyze data and publish our results on Github. On this page, I will keep a list of the projects that I have completed.
 
 ### \[Covid-19 Project\](<https://github.com/Seanpear/Portfolio.git>)
 

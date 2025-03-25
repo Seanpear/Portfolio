@@ -11,7 +11,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Hi! I’m a motivated and curious student at Colorado State University studying Ecosystem Science & Sustainability. I’m passionate about solving real-world problems with data and communicating science in creative ways. This website is a space for me to share my academic journey, showcase skills, and connect with others who care about environmental sustainability. My goal is to consistently highlight the importance of values such as curiosity, collaboration, and adaptability.\n\n\n© 2025 Sean Pearson\nCSU Portfolio • Built with Quarto"
+    "text": "Hi! I’m a motivated and curious student at Colorado State University studying Ecosystem Science and Sustainability. I’m passionate about solving real-world problems with data and communicating science in creative ways. This website is a space for me to share my academic journey, showcase skills, and connect with others who care about environmental sustainability. My goal is to consistently highlight the importance of values such as curiosity, collaboration, and adaptability. Outside of class, I bring energy and positivity to my work environment at Mama Ronis as a crew member. I’m always striving to learn something new every day.\n\n\n© 2025 Sean Pearson\nCSU Portfolio • Built with Quarto"
   },
   {
     "objectID": "index.html",
@@ -25,6 +25,6 @@
     "href": "projects.html",
     "title": "Projects",
     "section": "",
-    "text": "During my last semester of college I took an interesting class called Quantitative Reasoning with R. We use tools like R and Quarto to analyze data and publish our results on Github. On this page I will keep a list of the projects that I have completed.\n\n[Building a Portfolio](https://github.com/Seanpear/Portfolio.git)\n-Used dplyr to clean and summarize COVID-19 datasets\n- Wrote R code in a Quarto .qmd file successfully\n- Rendered an HTML report using RStudio\n- Practiced creating visuals and data interpretation\n- Learned to troubleshoot errors and improve my coding ability\n\n\n© 2025 Sean Pearson\nCSU Portfolio • Built with Quarto"
+    "text": "During my last semester of college, I took an interesting class called Quantitative Reasoning with R. We use tools like R and Quarto to analyze data and publish our results on Github. On this page, I will keep a list of the projects that I have completed.\n\n[Covid-19 Project](https://github.com/Seanpear/Portfolio.git)\n-Used dplyr to clean and summarize COVID-19 datasets\n- Wrote R code in a Quarto .qmd file successfully\n- Rendered an HTML report using RStudio\n- Practiced creating visuals and data interpretation\n- Learned to troubleshoot errors and improve my coding ability\n\n\n© 2025 Sean Pearson\nCSU Portfolio • Built with Quarto"
   }
 ]

@@ -28,6 +28,11 @@ format:
       - styles.scss
     toc: true
     css: styles.css
+    page:
+      favicon: favicons.png
+
+resources:
+  - favicon.png
 
 editor: visual
 
