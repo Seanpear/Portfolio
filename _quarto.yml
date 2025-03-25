@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: _site
   render:
    - index.qmd
    - about.qmd
@@ -28,11 +29,6 @@ format:
       - styles.scss
     toc: true
     css: styles.css
-    page:
-      favicon: favicons.png
-
-resources:
-  - favicon.png
 
 editor: visual
 
