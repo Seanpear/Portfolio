@@ -21,9 +21,9 @@ website:
       - href: projects.qmd
         text: Projects
 
-
 format:
   html:
+    self-contained: true
     theme:
       - default
       - styles.scss

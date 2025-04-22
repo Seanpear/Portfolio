@@ -1,0 +1,124 @@
+---
+title: "ESS 330 Final Project Proposals"
+author: ["Sean Pearson", "Nick Beegle"]
+format: html
+editor: visual
+---
+
+
+## Project Focus: Investigate how the % of impervious surfaces affects: water quality (nutrient pollution, turbidity) and streamflow flashiness (how rapidly streams fall and rise in response to rain). 
+
+
+## Sean's Proposal 1: Effects of Impervious Surface on Stream Flashiness in Colorado Watersheds
+
+### Justification
+
+As urban areas expand, impervious surfaces such as roads, rooftops, and parking lots disrupt natural hydrology, leading to increased runoff and more variable streamflows (Walsh et al., 2005). This phenomenon, known as streamflow flashiness, can cause erosion, degrade habitat, and amplify flood risks. Measuring this flashiness in relation to watershed imperviousness offers insights into the consequences of urban development on stream behavior, particularly in semi-arid regions like Colorado where hydrologic responses may be more pronounced. Understanding this relationship is essential for guiding sustainable development and improving watershed management.
+
+### Research Objective / Hypothesis
+
+Objective: to evaluate how percent impervious surface in Colorado watersheds affects streamflow flashiness.
+Hypothesis: Watersheds with higher impervious surface coverage will exhibit significantly higher streamflow flashiness, measured using the Richards-Baker Index.
+
+### Proposed Methods
+
+We will extract percent impervious surface using the NLCD rasterdataset clipped to watersheds. Streamflow data will be retrieved from USGS NWIS using the dataRetrieval R package. We will calculate the Richards-Baker Flashiness Index using daily discharge data from 2010–2020 at selected gaging stations across multiple land use gradients. Watersheds will be categorized based on impervious surface % to assess patterns. We will use linear regression to test for statistical correlation between imperviousness and flashiness.
+
+### Expected Outcomes
+
+We expect to find a positive correlation between watershed imperviousness and streamflow flashiness. Higher impervious surface % should correspond to more rapid and variable stream discharge. These results would reinforce the importance of green infrastructure and land use planning in mitigating hydrologic disturbance in urbanizing areas.
+
+#### References
+
+Walsh, Christopher J, et al. “The Urban Stream Syndrome: Current Knowledge and the Search for a Cure.” ResearchGate, Journal of the North American Benthological Society, Sept. 2005, www.researchgate.net/publication/228642919_The_Urban_Stream_Syndrome_Current_Knowledge_and_the_Search_For_A_Cure. 
+
+Shuster, William, et al. “(PDF) Impacts of Impervious Surface on Watershed Hydrology: A Review.” Research Gate, Urban Water Journal , Dec. 2005, www.researchgate.net/publication/240534535_Impacts_of_Impervious_Surface_on_Watershed_Hydrology_A_Review. 
+
+## Sean's Proposal 2: Linking Impervious Surface Coverage to Nutrient Loading in Colorado Streams
+
+### Justification
+
+Urban runoff from impervious surfaces often carries pollutants like nitrogen and phosphorus directly into nearby water bodies without filtration (Paul & Meyer, 2001). This process contributes to nutrient enrichment and eutrophication, which can lead to algal blooms, oxygen depletion, and biodiversity loss (Carpenter et al., 2001). In Colorado, where growing urban centers are expanding into sensitive watersheds, understanding the link between land cover and nutrient pollution is critical. This project seeks to quantify whether higher impervious surface percentages within a watershed are associated with elevated concentrations of nitrogen and phosphorus in streams, informing land-use decisions and watershed protection policies.
+
+###Research Objective / Hypothesis
+
+Objective: to assess how impervious land cover influences nitrogen and phosphorus concentrations in streams across Colorado watersheds.
+Hypothesis: streams draining watersheds with higher impervious surface area will have higher concentrations of nitrate and phosphorus due to increased urban runoff and reduced filtration.
+
+### Proposed Methods
+
+Impervious surface data will be extracted from the NLCD dataset and aggregated within watershed boundaries. Nutrient data will be retrieved using the dataRetrieval R package from the USGS NWIS Water Quality Portal. We will identify sampling sites with both water quality and land cover data. Linear regression models will test relationships between % impervious surface and nutrient concentrations. 
+
+### Expected Outcomes
+
+We expect to find that more urbanized watersheds (with higher impervious surface coverage) have higher nitrate and phosphorus levels in streams. These results would highlight the role of land cover in driving nutrient pollution and support the need for improved stormwater management in urban planning.
+
+#### References
+
+Paul, Michael J., and Judy L. Meyer. “Streams in the Urban Landscape.” Annual Review of Ecology, Evolution, and Systematics, Annual Reviews, 1 Nov. 2001, www.annualreviews.org/content/journals/10.1146/annurev.ecolsys.32.081501.114040. 
+
+Carpenter, S. R., Caraco, N. F., Correll, D. L., Howarth, R. W., Sharpley, A. N., & Smith, V. H. Nonpoint pollution of surface waters with phosphorus and nitrogen. Ecological Applications, Dec. 2001, https://www.epa.gov/watershedacademy/nonpoint-source-pollution-nitrogen-and-phosphorus
+
+## Nick's Proposal 1: A Historical Analysis of Impervious Surface Impact on Water Quality and Streamflow Flashiness in the Poudre River
+
+### Justification:
+
+The Poudre River has seen increasing urban development around Fort Collins over the last few decades. As impervious surfaces such as roads and buildings expand, water quality and flow patterns in the river may be affected. This study is a chance to understand long-term local trends and inform future urban planning and watershed management.
+Research Objective/Question/Hypothesis:
+How has the increase in impervious land cover over time affected water quality (e.g., nutrient concentrations, turbidity) and streamflow flashiness in the Poudre River?
+
+### Hypothesis 
+
+Increases in impervious surface area over time have contributed to decreased water quality and increased streamflow flashiness.
+
+### Proposed Methods
+
+Collect historical land cover data (NLCD datasets) for the Fort Collins region.
+Access water quality and streamflow data from USGS gages on the Poudre River.
+Use basic R statistical tools such as linear regression to assess relationships over time.
+Create time series plots and correlation analyses.
+Potentially calculate the Richards-Baker Flashiness Index.
+
+### Expected Outcomes
+
+A visualization of how impervious surface area, water quality metrics, and flashiness have changed over time.
+Evidence of positive correlations between urbanization and stress on the watershed surrounding Fort Collins.
+A simple regression model showing relationship strength.
+
+### Sources
+
+Multi-Resolution Land Characteristics (MRLC) Consortium. (n.d.). Data: Fractional Impervious Surface. U.S. Geological Survey. Retrieved April 18, 2025, from https://www.mrlc.gov/data?f%5B0%5D=category%3AFractional%20Impervious%20Surface
+U.S. Geological Survey. (n.d.). USGS 06752260 Cache la Poudre River at Fort Collins, CO. National Water Information System. Retrieved April 18, 2025, from https://waterdata.usgs.gov/nwis/inventory/?site_no=06752260&agency_cd=USGS
+
+## Nick's Proposal 2: Evaluating Water Quality and Flashiness Before and After Green Infrastructure Efforts in Portland, Oregon
+
+### Justification
+
+Portland, Oregon has been a leader in implementing green infrastructure (like permeable pavement, rain gardens, and green roofs) to reduce stormwater runoff and mitigate the effects of impervious surfaces. This project will examine whether these efforts have had measurable impacts on stream water quality and flow variability over time.
+Research Objective/Question/Hypothesis:
+How have Portland’s efforts to reduce impervious surface impacts through green infrastructure influenced local stream water quality and flashiness over time?
+
+### Hypothesis
+
+Water quality has improved and streamflow flashiness has decreased in areas where green infrastructure was implemented, compared to earlier periods.
+
+### Proposed Methods
+
+Obtain historical and recent land cover/impervious surface data for Portland using NLCD datasets.
+Access water quality and streamflow data for streams within Portland from the USGS or the city’s environmental services.
+Identify timelines and areas where green infrastructure was implemented.
+Use time series analysis and linear regression in R to compare before vs. after periods.
+Visualize changes using ggplot and explore trends using dplyr and tidyr
+
+
+### Expected Outcomes:
+
+A clear before-and-after comparison of stream conditions in areas impacted by green infrastructure.
+Evidence (or lack thereof) of water quality improvement and reduced flashiness.
+Insight into the effectiveness of city-wide impervious surface reduction strategies for stream health.
+
+#### Sources
+
+Multi-Resolution Land Characteristics (MRLC) Consortium. (n.d.). Data: Fractional Impervious Surface. U.S. Geological Survey. Retrieved April 18, 2025, from https://www.mrlc.gov/data?f%5B0%5D=category%3AFractional%20Impervious%20Surface
+
+City of Portland Bureau of Environmental Services. (n.d.). About Green Streets. Retrieved April 18, 2025, from https://www.portland.gov/bes/stormwater/about-green-streets
