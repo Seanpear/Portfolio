@@ -1,0 +1,303 @@
+---
+title: "Lab 8"
+author: "Sean Pearson"
+editor: visual
+---
+
+```{r}
+library(tidyverse)
+library(tidymodels)
+library(powerjoin)
+library(janitor)
+library(skimr)
+library(visdat)
+tidymodels_prefer()
+```
+
+## Data Import
+
+```{r}
+types <- c("clim", "geol", "soil", "topo", "vege", "hydro")
+local_files <- glue::glue("data/camels_{types}.txt")
+```
+
+```{r}
+camels_list <- map(local_files, read_delim, show_col_types = FALSE)
+```
+
+```{r}
+camels_data <- reduce(camels_list, power_full_join, by = "gauge_id")
+```
+
+```{r}
+camels_clean <- camels_data %>%
+  clean_names() %>%
+  relocate(gauge_lat, gauge_lon, .after = gauge_id) %>%
+  drop_na(q_mean)  # Ensure target variable is present
+```
+
+```{r}
+# EDA: explore structure
+skim(camels_clean)
+vis_dat(camels_clean)
+```
+## Data Splitting
+
+```{r}
+set.seed(123)  # ensures reproducibility
+data_split <- initial_split(camels_clean, prop = 0.8, strata = q_mean)
+train_data <- training(data_split)
+test_data <- testing(data_split)
+cv_folds <- vfold_cv(train_data, v = 3, strata = q_mean)
+```
+
+
+```{r}
+# Extract training and testing sets
+train_data <- training(data_split)
+test_data  <- testing(data_split)
+```
+
+## Feature Engineering
+
+```{r}
+ml_recipe <- recipe(q_mean ~ ., data = train_data) %>%
+  step_rm(gauge_lat, gauge_lon) %>%  # remove from predictors, keep in final data
+  step_log(q_mean, base = 10) %>%    # transform outcome
+  step_dummy(all_nominal_predictors()) %>%  # handle any remaining character/categorical vars
+  step_normalize(all_numeric_predictors())  # standardize numeric predictors
+```
+
+## Resampling and Model Testing
+
+```{r}
+lm_spec <- linear_reg() %>%
+  set_engine("lm") %>%
+  set_mode("regression")
+```
+
+```{r}
+rf_spec <- rand_forest(mtry = tune(), trees = 1000, min_n = tune()) %>%
+  set_engine("ranger") %>%
+  set_mode("regression")
+```
+
+```{r}
+xgb_spec <- boost_tree(
+  trees = 1000,
+  tree_depth = tune(),
+  learn_rate = tune(),
+  loss_reduction = tune()
+) %>%
+  set_engine("xgboost") %>%
+  set_mode("regression")
+```
+
+```{r}
+model_set <- workflow_set(
+  preproc = list(ml_recipe),
+  models = list(
+    linear_reg = lm_spec,
+    random_forest = rf_spec,
+    xgboost = xgb_spec
+  )
+)
+```
+
+```{r}
+set.seed(123)
+model_results <- model_set %>%
+  workflow_map(
+    resamples = cv_folds,
+    grid = 1,
+    metrics = metric_set(rmse, rsq),
+    verbose = TRUE
+  )
+```
+    
+```{r}    
+autoplot(model_results)
+```
+
+The best performing model is boost tree. The model type is boosted tree, the engine is xgboost, and the mode is regression. Boost tree performed the best because it has the lowest RMSE and highest r-squared value.
+
+## Model Tuning
+
+```{r} 
+xgb_tuned_spec <- boost_tree(
+  trees = 1000,
+  tree_depth = tune(),
+  learn_rate = tune(),
+  loss_reduction = tune()
+) %>%
+  set_engine("xgboost") %>%
+  set_mode("regression")
+```
+
+```{r}
+xgb_workflow <- workflow() %>%
+  add_recipe(ml_recipe) %>%
+  add_model(xgb_tuned_spec)
+```
+
+```{r}
+dials <- extract_parameter_set_dials(xgb_workflow)
+dials
+```
+
+## Define the Search Space
+
+```{r}
+my_grid <- grid_space_filling(dials, size = 3)
+```
+
+```{r}
+model_params <- tune_grid(
+  xgb_workflow,          # your tunable workflow
+  resamples = cv_folds,  # 10-fold CV object
+  grid = my_grid,        # the grid of 25 combos you made
+  metrics = metric_set(rmse, rsq, mae),
+  control = control_grid(save_pred = TRUE)
+)
+```
+
+```{r}
+autoplot(model_params)
+```
+Learning Rate: As learning rate increases (toward the right), RMSE and MAE tend to increase, suggesting lower learning rates perform better. R-squared scores are higher (better) with smaller learning rates, again confirming that a small learning rate improves model performance.
+Min Loss Reduction: Lower values for this parameter appear to yield better performance (lower MAE and RMSE, higher R-squared). This suggests that allowing more splits improves the model.
+Tree Depth: Performance is more mixed here. Extremely shallow trees (depth = 1 or 2) perform worse (higher MAE/RMSE, lower R-squared), but after a certain depth (around 6–8), performance stabilizes or improves only slightly.
+
+## Check the Skill of the Models
+
+```{r}
+collect_metrics(model_params)
+```
+
+The collect metrics function shows the MAE, RMSE, and R-squared values for each combination of tree depth, learning rate, and loss reduction. From this, we can see that certain combinations, especially with lower tree depths and small learning rates, generally produce lower MAE values. Confirming the results from show best.
+
+```{r}
+show_best(model_params, metric = "mae")
+```
+The best performing hyperparameter set based on Mean Absolute Error includes a tree depth of 3, a learning rate of approximately 0.059, and a very small loss reduction value. This means a relatively shallow model with a moderately low learning rate and minimal regularization achieved the most accurate average predictions during tuning.
+
+## Finalize Models
+
+```{r}
+library(tune)
+library(baguette)
+library(ggplot2)
+```
+
+```{r}
+hp_best <- select_best(model_params, metric = "mae")
+```
+
+```{r}
+final_wf <- finalize_workflow(xgb_workflow, hp_best)
+```
+
+```{r}
+final_fit <- last_fit(final_wf, split = data_split)
+```
+
+```{r}
+# Get metrics
+collect_metrics(final_fit)
+```
+
+The final model did really well on the test data. The RMSE was just 0.0525, which means the predictions were really close to the actual values. The R-suared was 0.99, so the model explained about 99% of the variation in streamflow, which is solid. It looks like the model generalizes well and isn’t overfitting, since it performed just as well on the test set as it did during tuning.
+
+```{r}
+# Get predictions
+final_preds <- collect_predictions(final_fit)
+```
+
+## Build a Map
+
+```{r}
+ggplot(final_preds, aes(x = .pred, y = q_mean)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "lm", se = FALSE, color = "blue") +
+  geom_abline(slope = 1, intercept = 0, linetype = "dashed", color = "red") +
+  labs(
+    title = "Predicted vs Actual q_mean (log10)",
+    x = "Predicted log10(q_mean)",
+    y = "Actual log10(q_mean)"
+  ) +
+  theme_minimal()
+```
+```{r setup, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(tidymodels)
+library(powerjoin)
+library(patchwork)
+```
+
+```{r log-transform-outcome}
+# Log-transform q_mean manually
+camels_clean <- camels_clean %>%
+  mutate(log_q_mean = log10(q_mean))
+```
+
+```{r recipe-setup}
+# Create recipe without step_log
+ml_recipe <- recipe(log_q_mean ~ ., data = camels_clean) %>%
+  step_rm(gauge_id, gauge_lat, gauge_lon, q_mean) %>%
+  step_unknown(all_nominal_predictors()) %>%
+  step_novel(all_nominal_predictors()) %>%
+  step_dummy(all_nominal_predictors()) %>%
+  step_normalize(all_numeric_predictors())
+```
+
+```{r workflow}
+# Create and finalize workflow
+wf <- workflow() %>%
+  add_model(xgb_model) %>%      # Make sure xgb_model is defined earlier
+  add_recipe(ml_recipe)
+
+final_wf <- finalize_workflow(wf, hp_best)  # hp_best should be from select_best()
+```
+
+```{r fit-predict}
+# Fit model on full dataset and predict
+final_model_fit <- fit(final_wf, data = camels_clean)
+
+pred_vals <- predict(final_model_fit, new_data = camels_clean)
+
+pred_data <- bind_cols(camels_clean, pred_vals)
+```
+
+```{r residuals}
+# Back-transform predictions and calculate residuals
+pred_data <- pred_data %>%
+  mutate(
+    q_mean_pred = 10^.pred,
+    residual = (q_mean_pred - q_mean)^2
+  )
+```
+
+```{r prediction-map}
+# Map of predicted values
+pred_map <- ggplot(pred_data, aes(x = gauge_lon, y = gauge_lat, color = q_mean_pred)) +
+  geom_point(size = 2) +
+  scale_color_viridis_c() +
+  coord_fixed() +
+  theme_minimal() +
+  labs(title = "Predicted q_mean (cfs)", color = "Prediction")
+```
+
+```{r residual-map}
+# Map of residuals
+resid_map <- ggplot(pred_data, aes(x = gauge_lon, y = gauge_lat, color = residual)) +
+  geom_point(size = 2) +
+  scale_color_viridis_c() +
+  coord_fixed() +
+  theme_minimal() +
+  labs(title = "Prediction Residuals", color = "Residual")
+```
+
+```{r combined-maps}
+# Display both maps side-by-side
+pred_map | resid_map
+```

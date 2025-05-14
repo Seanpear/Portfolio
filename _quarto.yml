@@ -1,12 +1,19 @@
 project:
   type: website
-  output-dir: .
+  output-dir: docs
   render:
    - index.qmd
    - about.qmd
    - projects.qmd
    - resume.qmd
-
+format:
+  html:
+    self-contained: true
+    theme:
+      - default
+      - styles.scss
+    toc: true
+    css: styles.css
 
 website:
   title: "csu-portfolio"
@@ -21,14 +28,6 @@ website:
       - href: projects.qmd
         text: Projects
 
-format:
-  html:
-    self-contained: true
-    theme:
-      - default
-      - styles.scss
-    toc: true
-    css: styles.css
 
 editor: visual
 

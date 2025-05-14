@@ -4,17 +4,66 @@ title: "Projects"
 
 During my last semester of college, I took an interesting class called Quantitative Reasoning with R. We use tools like R and Quarto to analyze data and publish our results on Github. On this page, I will keep a list of the projects that I have completed.
 
-### \[Covid-19 Project\](<https://github.com/Seanpear/Portfolio.git>)
+### Lab 1: Portfolio 
 
--Used `dplyr` to clean and summarize COVID-19 datasets
+Building my portfolio website taught me how to use Quarto and GitHub Pages to organize and share my work. I got more comfortable writing .qmd files, working with RStudio, and setting up a site structure with YAML. It was a good way to practice presenting my projects clearly and figuring out how to fix issues when things didn’t render or deploy the way I expected.
 
-\- Wrote R code in a Quarto `.qmd` file successfully
+<img src="img1.png" alt="Plot from Lab 1" width="600px" style="border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); margin-bottom: 20px;" />
 
-\- Rendered an HTML report using RStudio
+### [Lab 2: Minnesota Tree Growth](https://seanpear.github.io/Lab-tree-growth/)
 
-\- Practiced creating visuals and data interpretation
+In this lab, I worked with a big dataset tracking tree growth in Minnesota from 1897 to 2007. I used dplyr to filter, group, and summarize the data, which helped me get more comfortable with R and data manipulation. I figured out things like how many trees were recorded in different stands, which species grew the fastest, and how to calculate tree size using DBH. This was my first time really digging into a large ecological dataset, and it showed me how useful dplyr is for breaking down and understanding patterns in long-term environmental data.
 
-\- Learned to troubleshoot errors and improve my coding ability
+<img src="img2.png" alt="Plot from Lab 1" width="600px" style="border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); margin-bottom: 20px;" />
+
+### [Lab 3: Covid Wrangling](https://seanpear.github.io/csu-ess-lab3/)
+
+In this lab, I worked with real COVID-19 data from the New York Times to see how the virus spread in Colorado and across the U.S. I used tools like dplyr and ggplot2 to calculate daily case numbers, find patterns, and create graphs. I also added population data to compare case rates fairly between places and used rolling averages to smooth out the data. One of the most interesting parts was mapping how the center of the outbreak moved over time. This lab helped me learn how to work with big datasets and showed me how important it is to understand the background of data when sharing public health info.
+
+<img src="img3.png" alt="Plot from Lab 1" width="600px" style="border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); margin-bottom: 20px;" />
+
+### [Lab 4: Statistics in R](https://seanpear.github.io/Lab4-network-data/lab4.html)
+
+In this lab, I used data from the LTER Network to practice different stats tests in R, like chi-square, t-tests, correlation, and linear regression. I mostly looked at fish and salamander data from streams in old growth and clear cut forests to see how things like weight and length changed between habitats.This lab helped me get more comfortable running and understanding stats in R, especially with real ecological data.
+
+
+<img src="img4.png" alt="Plot from Lab 1" width="600px" style="border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); margin-bottom: 20px;" />
+
+### [Lab 5: Final Project - Proposals](https://seanpear.github.io/ESS330-Project-Proposal/)
+
+For this lab, I wrote two research proposals exploring how land use and green infrastructure affect streamflow and water quality. Each included a hypothesis, methods, expected results, and supporting sources. It was a good intro to planning real world environmental studies and thinking through data, scale, and analysis before diving in.
+
+<img src="img5.png" alt="Plot from Lab 1" width="600px" style="border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); margin-bottom: 20px;" />
+
+### [Lab 6: ML Workflows](https://seanpear.github.io/lab6_hydrology/)
+
+I used the tidymodels framework to predict streamflow using climate and watershed data from the CAMELS dataset. I built and compared models like linear regression, random forest, and XGBoost, and learned how to evaluate and tune them for better performance.
+
+<img src="img6.png" alt="Plot from Lab 1" width="600px" style="border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); margin-bottom: 20px;" />
+
+### [Lab 7: Project Proposal](https://seanpear.github.io/Lab7_Final_Project/)
+
+This lab was all about getting started on our final project. We created a Quarto manuscript, drafted our title and introduction, explored our datasets, and outlined our methods. We also started cleaning the data and building early visuals to guide our analysis.
+
+<img src="img7.png" alt="Plot from Lab 1" width="600px" style="border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); margin-bottom: 20px;" />
+
+### [Lab 8: ML Tuning](file:///C:/Github/lab6_hydrology/hyperparameter-tuning.qmd)
+
+This lab was tough. Building a full machine learning pipeline from start to finish took a lot of time and effort. We had to clean the data, split it, create recipes, test different models, tune them, and then validate everything on test data. It was easy to get lost in all the steps. Tuning the model was especially frustrating because it took so long to run and small mistakes would break the whole process.
+
+<img src="img8.png" alt="Plot from Lab 1" width="600px" style="border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); margin-bottom: 20px;" />
+
+### [Lab 9: Final Project - Results/Discussion Draft](https://seanpear.github.io/Lab7_Final_Project/)
+
+For this lab, we focused on writing up our methods clearly and started pulling together our results and discussion. We shared what the data showed, then talked about what it might mean, how it connects to the bigger picture, and any limitations. We also outlined ideas for what could come next.
+
+<img src="img9.png" alt="Plot from Lab 1" width="600px" style="border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); margin-bottom: 20px;" />
+
+### [Lab 11: Lightning Talk](lightningtalk.pptx)
+
+The presentation gives a quick overview of our project, including the background, main questions we explored, a few key results, and the take home points we wanted the audience to remember.
+
+<img src="img11.png" alt="Plot from Lab 1" width="600px" style="border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); margin-bottom: 20px;" />
 
 ```{=html}
 <style> .about-footer {   text-align: center;   font-size: 0.85em;   color: #666; } </style>

@@ -14,14 +14,11 @@ This website showcases my work with R, Quarto, and data analysis projects.
 
 ### Projects
 
-Check out my latest data science work:
-
-[Covid-19 Project](projects.html)
+[Check out my latest projects](projects.html)
 
 ### Resume
 
-View my resume:\
-[Resume](resume.html)
+[View my resume](resume.html)
 
 ::: about-footer
 **© 2025 Sean Pearson**\
